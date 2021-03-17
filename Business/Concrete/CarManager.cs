@@ -3,7 +3,7 @@ using Business.BusinessAspects.Autofac;
 using Business.Constants;
 using Business.ValidationRules.FluentValidation;
 using Core.Aspects.Autofac;
-using Core.Aspects.Autofac.Caching;
+//using Core.Aspects.Autofac.Caching;
 using Core.Aspects.Autofac.Validation;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
@@ -25,7 +25,7 @@ namespace Business.Concrete
 
         [SecuredOperation("car.add,admin")]
         [ValidationAspect(typeof(CarValidator))]
-        [CacheRemoveAspect("ICarService.Get")]
+        //[CacheRemoveAspect("ICarService.Get")]
         public IResult Add(Car car)
         {
             _carDal.Add(car);
@@ -61,7 +61,7 @@ namespace Business.Concrete
             throw new NotImplementedException();
         }
 
-        [TransactionScopeAspect]
+        //[TransactionScopeAspect]
         public IResult AddTransactionalTest(Car car)
         {
             throw new NotImplementedException();
